@@ -1,0 +1,10 @@
+{
+  "name": "keith-moore-realtor-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing site for Keith Moore, Royal LePage NRC REALTOR (Niagara Region). Static deployable build + design handoff.",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
