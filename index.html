@@ -44,6 +44,17 @@
     .hero-img-wrap{order:-1}
     .footer-grid{grid-template-columns:1fr 1fr !important}
   }
+
+  /* lead quiz */
+  .lq-opt{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;background:#fff;border:1.5px solid #e4e2dd;border-radius:11px;padding:15px 18px;font:600 15px 'Hanken Grotesk',sans-serif;color:#2c2b27;cursor:pointer;transition:border-color .15s,background .15s,transform .15s;margin-bottom:10px}
+  .lq-opt:hover{border-color:#c8102e;background:#fdf5f6;transform:translateY(-1px)}
+  .lq-opt.sel{border-color:#c8102e;background:#fbeaed}
+  .lq-opt .chev{color:#c8102e;font-weight:700}
+  .lq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .lq-grid .lq-opt{margin-bottom:0;justify-content:center;text-align:center}
+  @media(max-width:520px){.lq-grid{grid-template-columns:1fr}}
+  .lq-back{display:none;background:none;border:none;color:#8a8983;font:600 14px 'Hanken Grotesk',sans-serif;cursor:pointer;padding:10px 0 0;margin-top:8px;align-items:center;gap:6px}
+  .lq-back:hover{color:#c8102e}
 </style>
 </head>
 <body>
@@ -202,6 +213,90 @@
           </div>
         </div>
         <img src="assets/st-catharines.jpg" alt="Aerial view of St. Catharines and the Niagara Region" style="width:100%;height:clamp(360px,32vw,480px);object-fit:cover;border-radius:16px;box-shadow:0 30px 60px -36px rgba(0,0,0,.28);display:block">
+      </div>
+    </section>
+
+    <section id="lead-quiz-section" style="background:#f7f6f3;padding:clamp(60px,8vw,100px) clamp(20px,5vw,56px)">
+      <div style="max-width:720px;margin:0 auto 34px;text-align:center">
+        <p style="font:600 12px 'Hanken Grotesk',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#c8102e;margin:0 0 16px">Get Started</p>
+        <h2 style="font:500 clamp(28px,3.4vw,42px)/1.1 'Newsreader',serif;letter-spacing:-.015em;margin:0 0 14px">Let&#39;s find your next move.</h2>
+        <p style="font:400 16px/1.6 'Hanken Grotesk',sans-serif;color:#56554f;margin:0 auto;max-width:520px">Answer a few quick questions and Keith will follow up with guidance tailored to your plans.</p>
+      </div>
+      <div style="max-width:640px;margin:0 auto;background:#fff;border:1px solid #ebe9e5;border-radius:18px;padding:clamp(26px,4vw,40px);box-shadow:0 30px 60px -40px rgba(0,0,0,.22)">
+        <div id="lq-card">
+          <div style="margin-bottom:26px">
+            <div style="height:5px;background:#ebe9e5;border-radius:3px;overflow:hidden"><div id="lq-bar" style="height:100%;width:25%;background:#c8102e;border-radius:3px;transition:width .3s"></div></div>
+            <p id="lq-step-label" style="font:600 12px 'Hanken Grotesk',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8a8983;margin:12px 0 0">Step 1 of 4</p>
+          </div>
+
+          <div class="lq-step" data-step="1">
+            <h3 style="font:500 22px 'Newsreader',serif;margin:0 0 18px">Are you looking to&hellip;</h3>
+            <button type="button" class="lq-opt" data-field="intent" data-value="Buy">Buy a home<span class="chev">&rarr;</span></button>
+            <button type="button" class="lq-opt" data-field="intent" data-value="Sell">Sell a home<span class="chev">&rarr;</span></button>
+            <button type="button" class="lq-opt" data-field="intent" data-value="Both">Both &mdash; buy and sell<span class="chev">&rarr;</span></button>
+          </div>
+
+          <div class="lq-step" data-step="2" style="display:none">
+            <h3 style="font:500 22px 'Newsreader',serif;margin:0 0 18px">Which area are you focused on?</h3>
+            <div class="lq-grid">
+              <button type="button" class="lq-opt" data-field="area" data-value="St. Catharines">St. Catharines</button>
+              <button type="button" class="lq-opt" data-field="area" data-value="Fonthill">Fonthill</button>
+              <button type="button" class="lq-opt" data-field="area" data-value="Pelham">Pelham</button>
+              <button type="button" class="lq-opt" data-field="area" data-value="Thorold">Thorold</button>
+              <button type="button" class="lq-opt" data-field="area" data-value="Welland">Welland</button>
+              <button type="button" class="lq-opt" data-field="area" data-value="Niagara Region">Niagara Region</button>
+            </div>
+            <button type="button" class="lq-opt" data-field="area" data-value="Not sure yet" style="margin-top:10px;justify-content:center">I&#39;m not sure yet</button>
+          </div>
+
+          <div class="lq-step" data-step="3" style="display:none">
+            <h3 style="font:500 22px 'Newsreader',serif;margin:0 0 18px">When are you looking to move?</h3>
+            <button type="button" class="lq-opt" data-field="timeline" data-value="As soon as possible">As soon as possible<span class="chev">&rarr;</span></button>
+            <button type="button" class="lq-opt" data-field="timeline" data-value="1&ndash;3 months">1&ndash;3 months<span class="chev">&rarr;</span></button>
+            <button type="button" class="lq-opt" data-field="timeline" data-value="3&ndash;6 months">3&ndash;6 months<span class="chev">&rarr;</span></button>
+            <button type="button" class="lq-opt" data-field="timeline" data-value="6&ndash;12 months">6&ndash;12 months<span class="chev">&rarr;</span></button>
+            <button type="button" class="lq-opt" data-field="timeline" data-value="Just exploring">Just exploring for now<span class="chev">&rarr;</span></button>
+          </div>
+
+          <div class="lq-step" data-step="4" style="display:none">
+            <h3 style="font:500 22px 'Newsreader',serif;margin:0 0 6px">Where should Keith send your details?</h3>
+            <p style="font:400 14px 'Hanken Grotesk',sans-serif;color:#56554f;margin:0 0 20px">He&#39;ll follow up personally &mdash; no obligation.</p>
+            <form id="lq-form" novalidate>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px 18px">
+                <div>
+                  <label style="display:block;font:600 13px 'Hanken Grotesk',sans-serif;color:#161616;margin-bottom:8px">Full name</label>
+                  <input class="field" id="lq-name" type="text" placeholder="Your name" style="width:100%;font:400 15px 'Hanken Grotesk',sans-serif;padding:13px 15px;border:1px solid #d9d7d2;border-radius:9px;background:#fff;color:#161616;outline:none">
+                  <p class="lq-err" data-for="name" style="font:500 13px 'Hanken Grotesk',sans-serif;color:#c8102e;margin:6px 0 0;display:none"></p>
+                </div>
+                <div>
+                  <label style="display:block;font:600 13px 'Hanken Grotesk',sans-serif;color:#161616;margin-bottom:8px">Email</label>
+                  <input class="field" id="lq-email" type="email" placeholder="you@email.com" style="width:100%;font:400 15px 'Hanken Grotesk',sans-serif;padding:13px 15px;border:1px solid #d9d7d2;border-radius:9px;background:#fff;color:#161616;outline:none">
+                  <p class="lq-err" data-for="email" style="font:500 13px 'Hanken Grotesk',sans-serif;color:#c8102e;margin:6px 0 0;display:none"></p>
+                </div>
+                <div style="grid-column:1 / -1">
+                  <label style="display:block;font:600 13px 'Hanken Grotesk',sans-serif;color:#161616;margin-bottom:8px">Phone <span style="color:#8a8983;font-weight:400">(optional)</span></label>
+                  <input class="field" id="lq-phone" type="tel" placeholder="(905) 000-0000" style="width:100%;font:400 15px 'Hanken Grotesk',sans-serif;padding:13px 15px;border:1px solid #d9d7d2;border-radius:9px;background:#fff;color:#161616;outline:none">
+                </div>
+                <div style="grid-column:1 / -1">
+                  <label style="display:block;font:600 13px 'Hanken Grotesk',sans-serif;color:#161616;margin-bottom:8px">Anything else? <span style="color:#8a8983;font-weight:400">(optional)</span></label>
+                  <textarea class="field" id="lq-message" rows="3" placeholder="Tell Keith a little about your plans&hellip;" style="width:100%;font:400 15px/1.55 'Hanken Grotesk',sans-serif;padding:13px 15px;border:1px solid #d9d7d2;border-radius:9px;background:#fff;color:#161616;outline:none;resize:vertical"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary" style="margin-top:22px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 28px;background:#c8102e;color:#fff;font:600 16px 'Hanken Grotesk',sans-serif;border:none;border-radius:9px;cursor:pointer">Send to Keith<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" style="stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+              <p style="font:400 12px 'Hanken Grotesk',sans-serif;color:#8a8983;text-align:center;margin:14px 0 0">Your answers are sent to keithmoore@royallepage.ca</p>
+            </form>
+          </div>
+
+          <button type="button" id="lq-back" class="lq-back">&larr; Back</button>
+        </div>
+
+        <div id="lq-success" style="display:none;text-align:center;padding:16px 8px">
+          <div style="width:64px;height:64px;border-radius:50%;background:#fbeaed;display:flex;align-items:center;justify-content:center;margin:0 auto 22px"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c8102e" style="stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M5 12l4 4 10-10"></path></svg></div>
+          <h3 id="lq-success-h" style="font:500 28px 'Newsreader',serif;margin:0 0 12px">Thank you &mdash; your info is on its way.</h3>
+          <p id="lq-success-sub" style="font:400 16px/1.6 'Hanken Grotesk',sans-serif;color:#56554f;margin:0 0 18px">Keith will be in touch soon.</p>
+          <div id="lq-summary" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 0 20px"></div>
+          <p style="font:400 14px 'Hanken Grotesk',sans-serif;color:#8a8983;margin:0">Prefer to talk now? Call or text <a href="tel:+19055550199" style="color:#c8102e;font-weight:600;text-decoration:none">(905) 555-0199</a></p>
+        </div>
       </div>
     </section>
 
@@ -483,6 +578,58 @@
   }
 
   var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+<script>
+(function(){
+  var sec=document.getElementById('lead-quiz-section'); if(!sec) return;
+  var total=4, cur=1, state={intent:'',area:'',timeline:''};
+  var steps=[].slice.call(sec.querySelectorAll('.lq-step'));
+  var bar=document.getElementById('lq-bar'), label=document.getElementById('lq-step-label'), back=document.getElementById('lq-back');
+  function show(n){
+    cur=n;
+    steps.forEach(function(st){ st.style.display=(+st.getAttribute('data-step')===n)?'block':'none'; });
+    label.textContent='Step '+n+' of '+total;
+    bar.style.width=(n/total*100)+'%';
+    back.style.display = n>1 ? 'inline-flex' : 'none';
+  }
+  sec.querySelectorAll('.lq-opt[data-field]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var f=b.getAttribute('data-field'), v=b.getAttribute('data-value');
+      state[f]=v;
+      var parent=b.closest('.lq-step');
+      parent.querySelectorAll('.lq-opt').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      setTimeout(function(){ if(cur<total) show(cur+1); }, 200);
+    });
+  });
+  back.addEventListener('click',function(){ if(cur>1) show(cur-1); });
+  function val(id){ var e=document.getElementById(id); return e?e.value.trim():''; }
+  document.getElementById('lq-form').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    var name=val('lq-name'), email=val('lq-email');
+    var errs={};
+    if(!name) errs.name='Please enter your name.';
+    if(!email) errs.email='Please enter your email.';
+    else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) errs.email='Please enter a valid email address.';
+    sec.querySelectorAll('.lq-err').forEach(function(p){
+      var k=p.getAttribute('data-for');
+      if(errs[k]){ p.textContent=errs[k]; p.style.display='block'; } else { p.textContent=''; p.style.display='none'; }
+    });
+    if(Object.keys(errs).length) return;
+    var first=name.split(/\s+/)[0];
+    var it=state.intent==='Buy'?'buying':state.intent==='Sell'?'selling':(state.intent==='Both'?'buying or selling':'your move');
+    var areaTxt=(state.area && state.area!=='Not sure yet') ? (' in '+state.area) : '';
+    document.getElementById('lq-success-h').textContent='Thanks, '+first+' — your info is on its way.';
+    document.getElementById('lq-success-sub').textContent='Keith will reach out about '+it+areaTxt+'. Your details were sent to keithmoore@royallepage.ca.';
+    var chips=[]; if(state.intent)chips.push(state.intent); if(state.area)chips.push(state.area); if(state.timeline)chips.push(state.timeline);
+    document.getElementById('lq-summary').innerHTML=chips.map(function(c){
+      return '<span style="display:inline-block;padding:7px 14px;background:#f7f6f3;border:1px solid #e4e2dd;border-radius:30px;font:600 13px \'Hanken Grotesk\',sans-serif;color:#2c2b27">'+c+'</span>';
+    }).join('');
+    document.getElementById('lq-card').style.display='none';
+    document.getElementById('lq-success').style.display='block';
+  });
+  show(1);
 })();
 </script>
 </body>
